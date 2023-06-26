@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New CarCategory{% endblock %}
+
+{% block body %}
+    <h1 class="text-center" style="margin-top: 48px; margin-bottom: 32px;">Créeer une nouvelle CarCategory</h1>
+
+    <div class="d-flex flex-column align-items-center justify-content-center">
+        {{ include('car_category/_form.html.twig') }}
+        <a class="btn btn-primary" href="{{ path('app_car_category_index') }}">Retouner à la liste</a>
+    </div>
+{% endblock %}

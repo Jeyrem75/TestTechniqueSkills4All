@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CarCategory index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center" style="margin-top: 48px; margin-bottom: 32px;">CarCategory index</h1>
+        <div class="d-flex justify-content-center align-items-center">
+            <a class="btn btn-success" style="margin-bottom: 16px;" href="{{ path('app_car_category_new') }}">Créer une nouvelle entrée</a>
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for car_category in car_categories %}
+                <tr>
+                    <td>{{ car_category.id }}</td>
+                    <td>{{ car_category.name }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('app_car_category_show', {'id': car_category.id}) }}">Voir</a>
+                        <a class="btn btn-secondary" href="{{ path('app_car_category_edit', {'id': car_category.id}) }}">Editer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
